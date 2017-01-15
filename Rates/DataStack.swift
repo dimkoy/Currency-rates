@@ -26,6 +26,7 @@ class DataStack {
     
     let url = URL(string: "http://api.fixer.io/latest?symbols=RUB,USD")
     
+    
     func getValue() -> Dictionary<String,Double> {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
@@ -37,6 +38,7 @@ class DataStack {
                 if let content = data {
                     do {
                         let myJson = try JSONSerialization.jsonObject(with: content, options: JSONSerialization.ReadingOptions.mutableContainers) as AnyObject
+                        print(myJson)
                         
                         if let rates = myJson["rates"] as? NSDictionary {
                             
@@ -46,6 +48,7 @@ class DataStack {
                                 self.myCurrency.append((key as? String)!)
                                 self.myValues.append((value as? Double)!)
                             }
+                            print(rates)
                             newCurrency.setValue(rates["RUB"] as! Double, forKey: "eur")
                             let a:Double = (rates["RUB"] as! Double)/(rates["USD"] as! Double)
                             newCurrency.setValue(a, forKey: "usd")
@@ -69,13 +72,13 @@ class DataStack {
         let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Currency")
         request.returnsObjectsAsFaults = false
         
-
-        
+  
         do {
             let results = try context.fetch(request)
             
             if results.count > 0 {
                 for result in results as! [NSManagedObject] {
+    
                     currency["oldusd"] = currency["usd"]
                     currency["usd"] = result.value(forKey: "usd") as? Double
                     currency["oldeur"] = currency["eur"]
