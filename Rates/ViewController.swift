@@ -15,7 +15,30 @@ class ViewController: UIViewController {
     @IBOutlet weak var usdOldValue: UILabel!
     @IBOutlet weak var eurValue: UILabel!
     @IBOutlet weak var eurOldValue: UILabel!
+    @IBOutlet weak var usdView: UIView!
+    @IBOutlet weak var eurView: UIView!
  
+    @IBOutlet weak var menuBar: UIToolbar!
+    @IBAction func changeTheme(_ sender: Any) {
+        if usdValue.textColor == UIColor.black {
+            self.view.backgroundColor = UIColor.gray
+            usdValue.textColor = UIColor.white
+            eurValue.textColor = UIColor.white
+            usdView.backgroundColor = UIColor.gray
+            eurView.backgroundColor = UIColor.gray
+            menuBar.backgroundColor = UIColor.gray
+        } else {
+            self.view.backgroundColor = UIColor.white
+            usdValue.textColor = UIColor.black
+            eurValue.textColor = UIColor.black
+            usdView.backgroundColor = UIColor.white
+            eurView.backgroundColor = UIColor.white
+            menuBar.backgroundColor = UIColor.white
+
+            
+        }
+        
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,7 +72,6 @@ class ViewController: UIViewController {
     }
     
     func update() {
-        print("update")
         let data = DataStack()
         let value = data.getValue()
         usdValue.text = String(format: "%.2f", value["usd"]!)

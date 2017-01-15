@@ -27,7 +27,11 @@
                                     <constraint firstAttribute="height" constant="44" id="xWe-5w-YDO"/>
                                 </constraints>
                                 <items>
-                                    <barButtonItem image="Light" id="qsH-8q-meC"/>
+                                    <barButtonItem image="Light" id="qsH-8q-meC">
+                                        <connections>
+                                            <action selector="changeTheme:" destination="BYZ-38-t0r" id="P1G-ZN-AAY"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Курс Валют" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edo-tO-g4P">
@@ -124,11 +128,6 @@
                                     <constraint firstAttribute="trailing" secondItem="r3h-tS-bfy" secondAttribute="trailing" constant="16" id="tjj-Ia-shG"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lqd-Ui-sLT">
-                                <rect key="frame" x="24" y="422" width="43" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="reload"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -146,8 +145,11 @@
                     <connections>
                         <outlet property="eurOldValue" destination="4mZ-X6-25R" id="wnQ-p6-id4"/>
                         <outlet property="eurValue" destination="r3h-tS-bfy" id="b1J-Iy-RGK"/>
+                        <outlet property="eurView" destination="haa-u4-9hU" id="Jch-AU-ZoU"/>
+                        <outlet property="menuBar" destination="bAV-XB-b0i" id="0B6-ei-wll"/>
                         <outlet property="usdOldValue" destination="qWg-O7-SQI" id="Upe-sA-e7h"/>
                         <outlet property="usdValue" destination="k74-XK-sBW" id="e4b-nm-gbs"/>
+                        <outlet property="usdView" destination="ZuY-Nd-h1N" id="6X5-LV-Sei"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
